@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- bootsrap  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- script of bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <!-- google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Ubuntu&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS Styles -->
+    <style>
+        .speech {
+            border: 1px solid #ddd;
+            width: 300px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .speech input {
+            border: 0;
+            width: 240px;
+            display: inline-block;
+            height: 30px;
+        }
+
+        .speech img {
+            float: right;
+            width: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- middle section  -->
+    <div class="p-5 text-center bg-dark text-white container">
+        <h1 class="mb-3">Call Connect</h1>
+        <h6 class="mb-3">Call Center Analysis</h6>
+    </div>
+
+    <!-- Jumbotron -->
+    </header>
+
+    <div class="container mt-3 mb-3 container">
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-2 text-center">About</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ullam maxime provident aut sit,
+                    porro voluptatum iste! Veritatis cumque aperiam doloremque. Mollitia, quibusdam. Ex consectetur,
+                    tenetur exercitationem aliquam explicabo totam!</p>
+
+                <h5 class="mb-2">Technology</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur voluptatibus sit, nemo velit
+                    earum ab distinctio quidem voluptatem inventore amet non, reprehenderit quisquam! Eius quibusdam et
+                    dolores blanditiis ipsa expedita.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section: Design Block -->
+    <section class="text-center container">
+        <!-- Background image -->
+
+        <div class="bg-image">
+            <img src="/static/image/call12.jpg" alt="audiobook" width="100%" height="600">
+        </div>
+        <!-- Background image -->
+
+        <div class="card mx-4 mx-md-5 shadow-5-strong"
+            style="top: -100px; background: hsla(0, 0%, 100%, 0.8); backdrop-filter: blur(10px);">
+            <div class="card-body py-5 px-md-5">
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="fw-bold mb-5">Call Connect</h2>
+                        <form action="/uploader" method="POST" enctype="multipart/form-data">
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+
+                            <div class="row">
+                                <!-- <div class="col-md-6 mb-4"> -->
+                                <div class="form-outline">
+                                    <button class="btn btn-outline-secondary mb-4" style="width:200px; height:200px"
+                                        type="button"><i class="fa-solid fa-3x fa-phone"></i></button>
+                                    <!-- </div> -->
+                                </div>
+
+                                <!-- <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <div class="form-outline w-100">
+                      <input type="text" required id="form3Example2" class="form-control" />
+                      
+                      <label class="form-label" for="form3Example2">Last name</label>
+                    </div>
+                  </div>
+                </div> -->
+
+                                <input class="form-control" type="file" required name="file"
+                                    accept="application/mp3/mp4" id="file">
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-dark btn-block mt-5 mb-4" style="width: 100% ;">
+                                    Upload File
+                                </button>
+                        </form>
+
+                        <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                            <div class="d-flex flex-start w-100">
+                                <label class="form-label mx-4" for="formControlDisabled">Disabled</label>
+                                <div class="form-outline w-100">
+                                    <div class="form-outline mb-3">
+                                        <input class="form-control" id="formControlDisabled" type="text" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    
+</body>
+
+</html>

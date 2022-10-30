@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootsrap  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- script of bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+
+            background: #d1d5db;
+        }
+
+        .height {
+
+            height: 100vh;
+        }
+
+        .form {
+
+            position: relative;
+        }
+
+        .form .fa-search {
+
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #9ca3af;
+
+        }
+
+        .form span {
+
+            position: absolute;
+            right: 17px;
+            top: 13px;
+            padding: 2px;
+            border-left: 1px solid #d1d5db;
+
+        }
+
+        .left-pan {
+            padding-left: 7px;
+        }
+
+        .left-pan i {
+
+            padding-left: 10px;
+        }
+
+        .form-input {
+
+            height: 55px;
+            text-indent: 33px;
+            border-radius: 10px;
+        }
+
+        .form-input:focus {
+
+            box-shadow: none;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex col ">
+        <div class="container  ">
+            <div class="card text-center justify-content-center " style="width: 18rem; height: 40%;">
+                <div class="card-header">
+                    Speech To Text
+                </div>
+                <div class="card-body">
+
+                    <p class="card-text">
+                        <span id="final"></span>
+                        <span id="interim"></span>
+                    </p>
+                    <a href="/" class="btn btn-primary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+
+
+            <div class="row height d-flex justify-content-center align-items-center">
+
+                <div class="col-md-6">
+
+                    <form id="labnol" method="get" action="https://www.google.com/search">
+                        <div class="form">
+                            <i class="fa fa-search"></i>
+                            <input type="text" class="form-control form-input" name="q" id="transcript"
+                                placeholder="Search anything...">
+                            <span class="left-pan"><i onclick="startDictation()" class="fa fa-microphone"></i></span>
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function startDictation() {
+            if (window.hasOwnProperty('webkitSpeechRecognition')) {
+                var recognition = new webkitSpeechRecognition();
+                let final_transcript = "";
+                recognition.continuous = false;
+                recognition.interimResults = false;
+
+                recognition.lang = 'en-US';
+                recognition.start();
+
+                recognition.onresult = function (e) {
+                    // document.getElementById('transcript').value = e.results[0][0].transcript;
+                    // document.getElementById('show').value = e.results[0][0].transcript;
+                    let interim_transcript = "";
+                    for (let i = event.resultIndex; i < event.results.length; ++i) {
+                        if (event.results[i].isFinal) {
+                            final_transcript += event.results[i][0].transcript;
+                        } else {
+                            interim_transcript += event.results[i][0].transcript;
+                        }
+                    }
+                    document.querySelector("#final").innerHTML = final_transcript;
+                    document.querySelector("#interim").innerHTML = interim_transcript;
+
+                    //     console.log(e.results[0][0].transcript);
+                    //     recognition.stop();
+                    //    const val= document.getElementById('labnol').submit();
+
+                };
+
+                recognition.onerror = function (e) {
+                    recognition.stop();
+                };
+            }
+        }
+    </script>
+</body>
+
+</html>
